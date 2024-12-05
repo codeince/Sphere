@@ -1,5 +1,5 @@
 # STORY OF CREATION
-200 years ago, I sit and my friend(yes, he helped me with (HG)[https://github.com/codeince/HG]) said about [Discord](https://discord.com) bot which randomly says about something what you type. So I made this project.
+200 years ago, I sit and my friend(yes, he helped me with [HG](https://github.com/codeince/HG)) said about [Discord](https://discord.com) bot which randomly says about something what you type. So I made this project.
 
 # INSTALLATION
 1. Install (the repository)[https://github.com/CodeGameSlasher/Sphere]
