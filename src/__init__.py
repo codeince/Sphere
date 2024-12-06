@@ -1,31 +1,9 @@
+from json import loads, dumps
 from time import time
 from random import choice, seed
 
-answers = [
-    'да',
-    'возможно',
-    'возможно, стоит попробовать',
-    'врят ли',
-    'все зависит от обстоятельств',
-    'все указывает на да',
-    'это не лучший выбор',
-    'это не так просто',
-    'это хорошая идея',
-    'это может сработать',
-    'не теряй надежды',
-    'не стоит на это надеяться',
-    'не уверен, но есть шансы',
-    'нет',
-    'определенно, да',
-    'определенно, нет',
-    'скорее, да, чем нет',
-    'скорее, нет, чем да',
-    'сложно сказать, попробуй еще раз',
-    'судя по всему, нет',
-    'скоро узнаешь',
-    'время покажет',
-    'лучше не рисковать'
-]
+answers: dict[dict[str, list[str]]] = loads(open('src/answers.json', 'r', encoding='utf-8').read()).get('answers')
+answers = loads(dumps(answers, ensure_ascii=False))
 
 def capitalize(text: str) -> str:
     return text[0].upper() + text[1:]
@@ -37,7 +15,11 @@ class Answer:
         self.answer = self._generate_answer()
     
     def _generate_answer(self):
-        return capitalize(choice(answers))
+        for answers_ in answers.values():
+            if True in [word in answers_.get('masks') for word in self.question.lower().split()]:
+                return capitalize(choice(answers_.get('answers')))
+        else:
+            return capitalize(choice(answers.get('bool').get('answers')))
     
     def __str__(self) -> str:
         return f'Вопрос: {self.question}\nОтвет: {self.answer}'
