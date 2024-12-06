@@ -1,5 +1,6 @@
-from json import loads, dumps
 from time import time
+from json import loads, dumps
+from string import punctuation
 from random import choice, seed
 
 answers: dict[dict[str, list[str]]] = loads(open('src/answers.json', 'r', encoding='utf-8').read()).get('answers')
@@ -16,7 +17,7 @@ class Answer:
     
     def _generate_answer(self):
         for answers_ in answers.values():
-            if True in [word in answers_.get('masks') for word in self.question.lower().split()]:
+            if True in [word in answers_.get('masks') for word in self.question.lower().translate(str.maketrans(' ', ' ', punctuation)).split()]:
                 return capitalize(choice(answers_.get('answers')))
         else:
             return capitalize(choice(answers.get('bool').get('answers')))
