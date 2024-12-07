@@ -4,6 +4,7 @@
     {
         "init_text": "Sphere-Fortuneteller!\nCall on 8(800)555-35-35\nPrice: 100000$ per question:)\n",
         "answer_formatting": "Question: {question}\nAnswer: {answer}",
-        "type_text": "Enter the question\n>>> "
+        "type_text": "Enter the question\n>>> ",
+        "stop_words": ["bye", "exit", "quit"]
     }
 }
