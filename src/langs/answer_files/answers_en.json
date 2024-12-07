@@ -1,0 +1,45 @@
+{
+    "lang": "en",
+    "answers":{
+        "bool": {
+            "masks": ["can", "may", "do", "did", "shall"],
+            "answers": [
+                "yes",
+                "no",
+                "i'm swear yes",
+                "i'm swear no",
+                "more likely yes than no",
+                "more likely no than yes",
+                "all tells yes",
+                "it's good idea",
+                "it can work",
+                "hope dies last"
+            ]
+        },
+        "place": {
+            "masks": ["where"],
+            "answers": [
+                "hardly to tell",
+                "here",
+                "over there",
+                "everywhere",
+                "nowhere"
+            ]
+        },
+        "time": {
+            "masks": ["when"],
+            "answers": [
+                "time will tell",
+                "see soon",
+                "right now",
+                "this minute",
+                "this hour",
+                "today",
+                "yesterday",
+                "tommorrow",
+                "never"
+            ]
+        }
+    }
+    
+}

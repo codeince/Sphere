@@ -3,7 +3,10 @@ from json import loads, dumps
 from string import punctuation
 from random import choice, seed
 
-answers: dict[dict[str, list[str]]] = loads(open('src/answers.json', 'r', encoding='utf-8').read())
+lang_build = loads(open('src/langs/ru.json', 'r', encoding='utf-8').read())
+lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
+
+answers: dict[dict[str, list[str]]] = loads(open('src/langs/answer_files/answers_ru.json', 'r', encoding='utf-8').read())
 answers = (answers if answers.get('lang') == 'en' else loads(dumps(answers, ensure_ascii=False))).get('answers')
 
 def capitalize(text: str) -> str:
@@ -23,7 +26,10 @@ class Answer:
             return capitalize(choice(answers.get('bool').get('answers')))
     
     def __str__(self) -> str:
-        return f'Вопрос: {self.question}\nОтвет: {self.answer}'
+        return lang_build.get('answer_formatting').format(question=self.question, answer=self.answer)
+    
+    def __dict__(self) -> dict:
+        return {'question': self.question, 'answer': self.answer}
     
 class Sphere(list[Answer]):
     def __init__(self):
@@ -31,7 +37,7 @@ class Sphere(list[Answer]):
         self.init_txt()
 
     def init_txt(self):
-        print('Шар Гадалка!\nЗаписывайтесь по номеру телефона 8(800)555-35-35\nЦена: 100000 рублей за запрос:)\n')
+        print(lang_build.get('init_text'))
 
     def ask(self, question: str) -> str:
         answer = Answer(question)

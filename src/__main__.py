@@ -1,4 +1,4 @@
-from __init__ import Sphere
+from __init__ import Sphere, lang_build
 
 from rich.console import Console
 
@@ -10,7 +10,7 @@ while True:
     if len(guesser) > 0:
         guesser.init_txt()
         print(guesser, end='\n\n')
-    question = input('Введите вопрос\n>>> ')
+    question = input(lang_build.get('type_text'))
     if question.lower() == 'стоп':
         exit()
     guesser.ask(question)
