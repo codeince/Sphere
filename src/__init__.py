@@ -3,8 +3,8 @@ from json import loads, dumps
 from string import punctuation
 from random import choice, seed
 
-answers: dict[dict[str, list[str]]] = loads(open('src/answers.json', 'r', encoding='utf-8').read()).get('answers')
-answers = loads(dumps(answers, ensure_ascii=False))
+answers: dict[dict[str, list[str]]] = loads(open('src/answers.json', 'r', encoding='utf-8').read())
+answers = (answers if answers.get('lang') == 'en' else loads(dumps(answers, ensure_ascii=False))).get('answers')
 
 def capitalize(text: str) -> str:
     return text[0].upper() + text[1:]
