@@ -19,7 +19,7 @@
         "place": {
             "masks": ["where", "#place"],
             "answers": [
-                "hardly to tell",
+                "hard to say",
                 "here",
                 "over there",
                 "everywhere",
