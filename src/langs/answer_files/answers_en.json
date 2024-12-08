@@ -2,7 +2,7 @@
     "lang": "en",
     "answers":{
         "bool": {
-            "masks": ["can", "may", "do", "did", "shall"],
+            "masks": ["can", "may", "do", "did", "shall", "#bool"],
             "answers": [
                 "yes",
                 "no",
@@ -17,7 +17,7 @@
             ]
         },
         "place": {
-            "masks": ["where"],
+            "masks": ["where", "#place"],
             "answers": [
                 "hardly to tell",
                 "here",
@@ -27,7 +27,7 @@
             ]
         },
         "time": {
-            "masks": ["when"],
+            "masks": ["when", "#time"],
             "answers": [
                 "time will tell",
                 "see soon",

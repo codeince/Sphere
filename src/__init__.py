@@ -1,9 +1,10 @@
 from time import time
 from json import loads, dumps
 from string import punctuation
+punctuation = punctuation.replace('#', '')
 from random import choice, seed
 
-lang = 'en'
+lang = 'ru'
 lang_build = loads(open(f'src/langs/{lang}.json', 'r', encoding='utf-8').read())
 lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
 
