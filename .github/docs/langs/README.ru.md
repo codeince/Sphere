@@ -6,3 +6,11 @@
 2. Скачать [Python](https://python.org/downloads)
 3. Скачать дополнения("pip install -r requirements.txt")
 4. Запустить прогу через [Python](https://python.org/downloads)
+
+
+# СМЕНА ЯЗЫКА
+1. Добавь язык.json в langs папку
+2. Добавь answers_lang.json в langs/answers папку
+3. Открой __init__.py
+4. Замени строчку на "lang = 'your_language'"
+5. Готово!
