@@ -12,5 +12,5 @@
 1. Добавь язык.json в langs папку
 2. Добавь answers_lang.json в langs/answers папку
 3. Открой __init__.py
-4. Замени строчку на "lang = 'your_language'"
+4. Замени строчку на "lang = 'твой_язык'"
 5. Готово!
