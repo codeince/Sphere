@@ -3,10 +3,11 @@ from json import loads, dumps
 from string import punctuation
 from random import choice, seed
 
-lang_build = loads(open('src/langs/ru.json', 'r', encoding='utf-8').read())
+lang = 'en'
+lang_build = loads(open(f'src/langs/{lang}.json', 'r', encoding='utf-8').read())
 lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
 
-answers: dict[dict[str, list[str]]] = loads(open('src/langs/answer_files/answers_ru.json', 'r', encoding='utf-8').read())
+answers: dict[dict[str, list[str]]] = loads(open(f'src/langs/answer_files/answers_{lang}.json', 'r', encoding='utf-8').read())
 answers = (answers if answers.get('lang') == 'en' else loads(dumps(answers, ensure_ascii=False))).get('answers')
 
 def capitalize(text: str) -> str:
