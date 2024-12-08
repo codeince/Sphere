@@ -6,3 +6,10 @@
 2. Download [Python](https://python.org/downloads)
 3. Install requirements("pip install -r requirements.txt")
 4. Start the program using [Python](https://python.org/downloads)
+
+# LANGUAGE CHANGING
+1. Add lang.json to langs folder
+2. Add answers_lang.json to langs/answers folder
+3. Go to __init__.py
+4. Edit string to "lang = 'your_language'"
+5. All done!
