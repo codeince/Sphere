@@ -42,6 +42,7 @@ class Sphere(list[Answer]):
         print(lang_build.get('init_text'))
 
     def ask(self, question: str) -> str:
+        if len(answer) == 0: return answer
         answer = Answer(question)
         self.append(answer)
         return answer.answer
