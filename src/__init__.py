@@ -42,7 +42,7 @@ class Sphere(list[Answer]):
         print(lang_build.get('init_text'))
 
     def ask(self, question: str) -> str:
-        if len(question) == 0: return ''
+        if len(question.translate(str.maketrans('', '', punctuation+'#'))) == 0: return ''
         answer = Answer(question)
         self.append(answer)
         return answer.answer
