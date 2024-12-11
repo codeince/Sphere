@@ -2,7 +2,7 @@ from time import time
 from json import loads, dumps
 from string import punctuation
 punctuation = punctuation.replace('#', '')
-from random import choice, seed
+from random import choice, randint, seed
 
 lang = 'ru'
 lang_build = loads(open(f'src/langs/{lang}.json', 'r', encoding='utf-8').read())
@@ -21,11 +21,16 @@ class Answer:
         self.answer = self._generate_answer()
     
     def _generate_answer(self):
+        result = ''
         for answers_ in answers.values():
             if True in [word in answers_.get('masks') for word in self.question.lower().translate(str.maketrans(' ', ' ', punctuation)).split()]:
-                return capitalize(choice(answers_.get('answers')))
+                result = choice(answers_.get('answers'))
+                break
         else:
-            return capitalize(choice(answers.get('bool').get('answers')))
+            result = choice(answers.get('bool').get('answers'))
+
+        result = ' '.join([str(randint(-100000, 100000)) if word == '%rand%' else word for word in result.split()])
+        return capitalize(result)
     
     def __str__(self) -> str:
         return lang_build.get('answer_formatting').format(question=self.question, answer=self.answer)
