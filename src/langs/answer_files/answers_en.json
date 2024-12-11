@@ -2,7 +2,7 @@
     "lang": "en",
     "answers":{
         "bool": {
-            "masks": ["can", "may", "do", "did", "shall", "#bool"],
+            "masks": ["#bool", "can", "may", "do", "did", "shall"],
             "answers": [
                 "yes",
                 "no",
@@ -17,7 +17,7 @@
             ]
         },
         "place": {
-            "masks": ["where", "#place"],
+            "masks": ["#place", "where"],
             "answers": [
                 "hard to say",
                 "here",
@@ -27,7 +27,7 @@
             ]
         },
         "time": {
-            "masks": ["when", "#time"],
+            "masks": ["#time", "when"],
             "answers": [
                 "time will tell",
                 "see soon",
@@ -38,6 +38,17 @@
                 "yesterday",
                 "tommorrow",
                 "never"
+            ]
+        },
+        "number": {
+            "masks": ["#number", "how many", "how much"],
+            "answers": [
+                "a lot",
+                "many",
+                "few",
+                "none",
+                "a few",
+                "%rand%"
             ]
         }
     }
