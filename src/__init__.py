@@ -1,56 +1,50 @@
 from time import time
-from json import loads, dumps
 from string import punctuation
 punctuation = punctuation.replace('#', '')
 from random import choice, randint, seed
-
-lang = 'ru'
-lang_build = loads(open(f'src/langs/{lang}.json', 'r', encoding='utf-8').read())
-lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
-
-answers: dict[dict[str, list[str]]] = loads(open(f'src/langs/answer_files/answers_{lang}.json', 'r', encoding='utf-8').read())
-answers = (answers if answers.get('lang') == 'en' else loads(dumps(answers, ensure_ascii=False))).get('answers')
 
 def capitalize(text: str) -> str:
     return text[0].upper() + text[1:]
 
 class Answer:
-    def __init__(self, question: str):
+    def __init__(self, question: str, answer: str):
         seed(int(time()))
         self.question = capitalize(question if question.endswith('?') else f'{question}?')
-        self.answer = self._generate_answer()
+        self.answer = capitalize(answer)
     
-    def _generate_answer(self):
-        result = ''
-        for answers_ in answers.values():
-            if True in [word in answers_.get('masks') for word in self.question.lower().translate(str.maketrans(' ', ' ', punctuation)).split()]:
-                result = choice(answers_.get('answers'))
-                break
-        else:
-            result = choice(answers.get('bool').get('answers'))
-
-        result = ' '.join([str(randint(-100000, 100000)) if word == '%rand%' else word for word in result.split()])
-        return capitalize(result)
-    
-    def __str__(self) -> str:
-        return lang_build.get('answer_formatting').format(question=self.question, answer=self.answer)
+    def to_str(self, formatting: str = 'Question: {question}\nAnswer: {answer}') -> str:
+        return formatting.format(question=self.question, answer=self.answer)
     
     def __dict__(self) -> dict:
         return {'question': self.question, 'answer': self.answer}
     
 class Sphere(list[Answer]):
-    def __init__(self):
+    def __init__(self, lang_build: dict, answers: dict):
         super().__init__()
+        self.lang = lang_build
+        self.answers = answers
         self.init_txt()
 
     def init_txt(self):
-        print(lang_build.get('init_text'))
+        print(self.lang.get('init_text'))
 
     def ask(self, question: str) -> str:
         if len(question.translate(str.maketrans('', '', punctuation+'#'))) == 0: return ''
-        answer = Answer(question)
+        answer = self._generate_answer(question)
         self.append(answer)
         return answer.answer
     
+    def _generate_answer(self, question: str) -> str:
+        q = question.lower().translate(str.maketrans(' ', ' ', punctuation))
+
+        for answer_type in self.answers.values():
+            if True in [True for word in q.split() if word in answer_type.get('masks')]:
+                result = capitalize(choice(answer_type).get('answers'))
+                break
+        else:
+            result = capitalize(choice(self.answers.get('bool').get('answers')))
+
+        return Answer(question, result)
+
     def __str__(self) -> str:
         return '\n\n'.join(str(answer) for answer in self)
