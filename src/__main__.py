@@ -19,7 +19,7 @@ guesser = Sphere(lang_build, answers)
 while True:
     if len(guesser) > 0:
         guesser.init_txt()
-        print('\n'.join([answer.to_str(lang_build.get('answer_formatting')) for answer in guesser]), end='\n\n')
+        print(guesser.to_str(), end='\n\n')
     question = input(lang_build.get('type_text'))
     if question.lower() in lang_build.get('stop_words'):
         exit()
