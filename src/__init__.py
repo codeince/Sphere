@@ -46,5 +46,5 @@ class Sphere(list[Answer]):
 
         return Answer(question, result)
 
-    def to_str(self) -> str:
-        return '\n\n'.join(answer.to_str() for answer in self)
+    def to_str(self, formatting: str = 'Question: {question}\nAnswer: {answer}') -> str:
+        return '\n\n'.join(answer.to_str(formatting) for answer in self)
