@@ -5,10 +5,10 @@ from os import name, system
 def clear(): return system('cls' if name == 'nt' else 'clear')
 
 lang = 'en'
-lang_build = loads(open(f'src/langs/{lang}.json', 'r', encoding='utf-8').read())
+lang_build = loads(open(f'{'/'.join(__file__.split('\\')[:-1])}/langs/{lang}.json', 'r', encoding='utf-8').read())
 lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
 
-answers: dict[dict[str, list[str]]] = loads(open(f'src/langs/answer_files/answers_{lang}.json', 'r', encoding='utf-8').read())
+answers: dict[dict[str, list[str]]] = loads(open(f'{'/'.join(__file__.split('\\')[:-1])}/langs/answer_files/answers_{lang}.json', 'r', encoding='utf-8').read())
 answers = (answers if answers.get('lang') == 'en' else loads(dumps(answers, ensure_ascii=False))).get('answers')
 
 guesser = Sphere(lang_build, answers)
