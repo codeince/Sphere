@@ -4,7 +4,7 @@ from os import name, system
 
 def clear(): return system('cls' if name == 'nt' else 'clear')
 
-lang = 'en'
+lang = 'ru'
 lang_build = loads(open(f'{'/'.join(__file__.split('\\')[:-1])}/langs/{lang}.json', 'r', encoding='utf-8').read())
 lang_build = (lang_build if lang_build.get('lang') == 'en' else loads(dumps(lang_build, ensure_ascii=False))).get('text')
 
