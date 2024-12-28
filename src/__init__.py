@@ -39,12 +39,12 @@ class Sphere(list[Answer]):
 
         for answer_type in self.answers.values():
             if True in [True for word in q.split() if word in answer_type.get('masks')]:
-                result = capitalize(choice(answer_type).get('answers'))
+                result = capitalize(choice(answer_type.get('answers')))
                 break
         else:
             result = capitalize(choice(self.answers.get('bool').get('answers')))
         
-        result = result.replace('%rand%', randint(0, 100**100))
+        result = result.replace('%rand%', str(randint(0, 100**100)))
 
         return Answer(question, result)
 
