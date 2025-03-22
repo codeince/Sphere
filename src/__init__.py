@@ -42,9 +42,9 @@ class Sphere(list[Answer]):
                 result = capitalize(choice(answer_type.get('answers')))
                 break
         else:
-            result = capitalize(choice(self.answers.get('bool').get('answers')))
+            result = capitalize(choice(self.answers.get('default').get('answers')))
         
-        result = result.replace('%rand%', str(randint(0, 100**100)))
+        result = result.replace('%rand%', str(randint(0, 100)))
 
         return Answer(question, result)
 

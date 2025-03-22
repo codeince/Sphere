@@ -2,15 +2,25 @@
     "lang": "en",
     "answers":{
         "bool": {
-            "masks": ["#bool", "can", "may", "do", "did", "shall"],
+            "masks": ["#bool", "do", "did", "sure", "yes", "no"],
             "answers": [
                 "yes",
                 "no",
                 "i'm swear yes",
                 "i'm swear no",
+                "all tells yes"
+            ]
+        },
+        "default": {
+            "masks": ["#default", "shall", "can", "may"],
+            "answers": [
+                "yes",
+                "no",
+                "i'm swear yes",
+                "i'm swear no",
+                "all tells yes",
                 "more likely yes than no",
                 "more likely no than yes",
-                "all tells yes",
                 "it's good idea",
                 "it can work",
                 "hope dies last"
@@ -36,7 +46,7 @@
                 "this hour",
                 "today",
                 "yesterday",
-                "tommorrow",
+                "tomorrow",
                 "never"
             ]
         },
