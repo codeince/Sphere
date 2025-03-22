@@ -1,8 +1,15 @@
 {
     "lang": "en",
-    "answers":{
+    "answers": {
         "bool": {
-            "masks": ["#bool", "do", "did", "sure", "yes", "no"],
+            "masks": [
+                "#bool",
+                "do",
+                "did",
+                "sure",
+                "yes",
+                "no"
+            ],
             "answers": [
                 "yes",
                 "no",
@@ -12,7 +19,12 @@
             ]
         },
         "default": {
-            "masks": ["#default", "shall", "can", "may"],
+            "masks": [
+                "#default",
+                "shall",
+                "can",
+                "may"
+            ],
             "answers": [
                 "yes",
                 "no",
@@ -27,7 +39,10 @@
             ]
         },
         "place": {
-            "masks": ["#place", "where"],
+            "masks": [
+                "#place",
+                "where"
+            ],
             "answers": [
                 "hard to say",
                 "here",
@@ -37,7 +52,10 @@
             ]
         },
         "time": {
-            "masks": ["#time", "when"],
+            "masks": [
+                "#time",
+                "when"
+            ],
             "answers": [
                 "time will tell",
                 "see soon",
@@ -51,7 +69,11 @@
             ]
         },
         "number": {
-            "masks": ["#number", "how many", "how much"],
+            "masks": [
+                "#number",
+                "how many",
+                "how much"
+            ],
             "answers": [
                 "a lot",
                 "many",
@@ -60,7 +82,24 @@
                 "a few",
                 "%rand%"
             ]
+        },
+        "reason": {
+            "masks": [
+                "#reason",
+                "why",
+                "cause"
+            ],
+            "answers": [
+                "Forgetfulness",
+                "External circumstances",
+                "Illness/fatigue",
+                "Financial capabilities",
+                "Lack of time",
+                "Unforeseen circumstances",
+                "Busyness",
+                "Lack of free time",
+                "Many other things to do"
+            ]
         }
     }
-    
 }
