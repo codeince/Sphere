@@ -8,6 +8,7 @@ def capitalize(text: str) -> str:
 
 class Answer:
     def __init__(self, question: str, answer: str):
+        question = question.strip(' \n\t\r')
         self.question = capitalize(question if question.endswith('?') else f'{question}?')
         self.answer = capitalize(answer)
     
