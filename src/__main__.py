@@ -17,6 +17,7 @@ try:
     seed = int(''.join([symbol for symbol in seed if symbol in digits]))
 except:
     seed = None
+clear()
 
 
 guesser = Sphere(lang_build, answers, seed)
