@@ -8,7 +8,6 @@ def capitalize(text: str) -> str:
 
 class Answer:
     def __init__(self, question: str, answer: str):
-        seed(int(time()))
         self.question = capitalize(question if question.endswith('?') else f'{question}?')
         self.answer = capitalize(answer)
     
@@ -19,14 +18,17 @@ class Answer:
         return {'question': self.question, 'answer': self.answer}
     
 class Sphere(list[Answer]):
-    def __init__(self, lang_build: dict, answers: dict):
+    def __init__(self, lang_build: dict, answers: dict, seed_: int | None = None):
         super().__init__()
         self.lang = lang_build
         self.answers = answers
+        self.seed = seed_ if isinstance(seed_, int) else int(time())
+        seed(self.seed)
         self.init_txt()
 
     def init_txt(self):
         print(self.lang.get('init_text'))
+        print(self.lang.get('model_text').format(seed=self.seed))
 
     def ask(self, question: str) -> str:
         if len(question.translate(str.maketrans('', '', punctuation+'#'))) == 0: return ''
