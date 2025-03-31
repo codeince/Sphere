@@ -7,6 +7,9 @@
 3. Install requirements("pip install -r requirements.txt")
 4. Start the program using [Python](https://python.org/downloads)
 
+# What means Sphere Model
+Sphere Model is a number of Sphere's mind, how he will answer your questions but that's simply random's seed
+
 # LANGUAGE CHANGING
 1. Add lang.json to langs folder
 2. Add answers_lang.json to langs/answers folder
