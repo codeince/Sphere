@@ -17,3 +17,5 @@
 3. Открой __init__.py
 4. Замени строчку на "lang = 'твой_язык'"
 5. Готово!
+
+Ты можешь создать свой Шар при помощи [этого гайда](https://github.com/codeince/Sphere/.github/docs/langs/ru/CUSTOMPACK.md)

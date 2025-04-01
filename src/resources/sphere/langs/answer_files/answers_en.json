@@ -1,23 +1,6 @@
 {
     "lang": "en",
     "answers": {
-        "bool": {
-            "masks": [
-                "#bool",
-                "do",
-                "did",
-                "sure",
-                "yes",
-                "no"
-            ],
-            "answers": [
-                "yes",
-                "no",
-                "i'm swear yes",
-                "i'm swear no",
-                "all tells yes"
-            ]
-        },
         "default": {
             "masks": [
                 "#default",
@@ -36,6 +19,23 @@
                 "it's good idea",
                 "it can work",
                 "hope dies last"
+            ]
+        },
+        "bool": {
+            "masks": [
+                "#bool",
+                "do",
+                "did",
+                "sure",
+                "yes",
+                "no"
+            ],
+            "answers": [
+                "yes",
+                "no",
+                "i'm swear yes",
+                "i'm swear no",
+                "all tells yes"
             ]
         },
         "place": {
@@ -65,7 +65,17 @@
                 "today",
                 "yesterday",
                 "tomorrow",
-                "never"
+                "never",
+                "in %rand% milliseconds",
+                "in %rand% seconds",
+                "in %rand% minutes",
+                "in %rand% hours",
+                "in %rand% days",
+                "in %rand% weeks",
+                "in %rand% months",
+                "in %rand% years",
+                "in %rand% centuries",
+                "in %rand% millennium"
             ]
         },
         "number": {
@@ -76,11 +86,10 @@
             ],
             "answers": [
                 "a lot",
-                "many",
-                "few",
-                "none",
                 "a few",
-                "%rand%"
+                "none",
+                "%rand%",
+                "infinite"
             ]
         },
         "reason": {
