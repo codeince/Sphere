@@ -2,6 +2,8 @@
 
 If you need to create your own Sphere, maybe with swearing or humorer answers, this documentation was created just for you
 
+After creating of resource-pack you need to change value of variable in the "src/\_\_main\_\_.py" file in line " resource_pack = 'resource-pack name' "
+
 # Resource-pack Structure
 
 Your resource-pack must include this files:
