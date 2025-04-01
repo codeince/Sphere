@@ -18,4 +18,4 @@
 4. Замени строчку на "lang = 'твой_язык'"
 5. Готово!
 
-Ты можешь создать свой Шар при помощи [этого гайда](https://github.com/codeince/Sphere/.github/docs/langs/ru/CUSTOMPACK.md)
+Ты можешь создать свой Шар при помощи [этого гайда](https://github.com/codeince/Sphere/tree/main/.github/docs/langs/ru/CUSTOMPACK.md)

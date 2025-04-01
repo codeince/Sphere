@@ -17,4 +17,4 @@ Sphere Model is a number of Sphere's mind, how he will answer your questions but
 4. Edit string to "lang = 'your_language'"
 5. All done!
 
-You can create your custom Sphere using [this guide](https://github.com/codeince/Sphere/.github/docs/langs/en/CUSTOMPACK.md)
+You can create your custom Sphere using [this guide](https://github.com/codeince/Sphere/tree/main/.github/docs/langs/en/CUSTOMPACK.md)
