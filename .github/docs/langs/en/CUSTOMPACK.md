@@ -35,6 +35,7 @@ In this file logically too many different settings... groups:
 
         1. "masks": word or phrase for determination of current group(first mask should be "#group_name")
         2. "answers": answers for group questions
+            %rand% for generation random number here
 
 # And keep in mind
 
