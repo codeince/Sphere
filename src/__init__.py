@@ -47,7 +47,11 @@ class Sphere(list[Answer]):
         else:
             result = capitalize(choice(self.answers.get('default').get('answers')))
         
-        result = result.replace('%rand%', str(randint(0, 100)))
+        if result.find("%rand%") != -1:
+            result_list = result.split('%rand%')
+            result = result_list[0]
+            for i in result_list[1:]:
+                result = str(randint(0, 100)).join((result, i))
 
         return Answer(question, result)
 
