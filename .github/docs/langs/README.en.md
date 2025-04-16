@@ -4,9 +4,9 @@
 
 # INSTALLATION
 
-1. Install [the repository](https://github.com/CodeGameSlasher/Sphere)
+1. Install [the repository](https://github.com/codeince/Sphere)
 2. Download [Python](https://python.org/downloads)
-3. Install requirements("pip install -r requirements.txt")
+3. Install requirements(``pip install -r requirements.txt``)
 4. Start the program using [Python](https://python.org/downloads)
 
 # What do Sphere Model means
@@ -17,8 +17,8 @@ Sphere Model is a number of Sphere's mind, how he will answer your questions but
 
 1. Add lang.json to langs folder
 2. Add answers_lang.json to langs/answers folder
-3. Go to __init__.py
-4. Edit string to "lang = 'your_language'"
+3. Go to ``__init__.py``
+4. Edit string to ``lang = 'your_language'``
 5. All done!
 
 You can create your custom Sphere using [this guide](https://github.com/codeince/Sphere/tree/main/.github/docs/langs/en/CUSTOMPACK.md)
