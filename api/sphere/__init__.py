@@ -15,11 +15,11 @@ class Answer:
     def to_str(self, formatting: str = 'Question: {question}\nAnswer: {answer}') -> str:
         return formatting.format(question=self.question, answer=self.answer)
     
-    def __dict__(self) -> dict:
-        return {'question': self.question, 'answer': self.answer}
+    def to_dict(self) -> dict:
+        return dict(question=self.question, answer=self.answer)
     
 class Sphere(list[Answer]):
-    def __init__(self, lang_build: dict, answers: dict, seed_: int | None = None):
+    def __init__(self, lang_build: dict, answers: list[dict[str, str]], seed_: int | None = None):
         super().__init__()
         self.lang = lang_build
         self.answers = answers
@@ -31,13 +31,17 @@ class Sphere(list[Answer]):
         print(self.lang.get('init_text'))
         print(self.lang.get('model_text').format(seed=self.seed))
 
+    def load_history(self, history: list[dict[str, str]]):
+        self.clear()
+        self.extend(history)
+
     def ask(self, question: str) -> str:
         if len(question.translate(str.maketrans('', '', punctuation+'#'))) == 0: return ''
         answer = self._generate_answer(question)
         self.append(answer)
         return answer.answer
     
-    def _generate_answer(self, question: str) -> str:
+    def _generate_answer(self, question: str) -> Answer:
         q = question.lower().translate(str.maketrans(' ', ' ', punctuation))
 
         for answer_type in self.answers.values():
@@ -57,3 +61,6 @@ class Sphere(list[Answer]):
 
     def to_str(self, formatting: str = 'Question: {question}\nAnswer: {answer}') -> str:
         return '\n\n'.join(answer.to_str(formatting) for answer in self)
+    
+    def to_list(self) -> list[dict[str, str]]:
+        return [answer.to_dict() for answer in self]
