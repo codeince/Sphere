@@ -1,4 +1,4 @@
-from sphere.__init__ import Sphere
+from __init__ import *
 from json import loads, dumps
 from os import name, system
 from string import digits
