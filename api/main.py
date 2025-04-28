@@ -38,25 +38,8 @@ def get_history(token: str):
     
 @app.get('/')
 def get_homepage():
-    return html('''<DOCTYPE html>
-<html>
+    return html(open('index.html', 'r', encoding='utf-8').read())
 
-    <body>
-        <input id="inputField" placeholder="Enter your question: " />
-        <button id="askBtn">Ask Sphere</button>
-        <div id="answers"></div>
-        <script>
-            const askBtn = document.getElementById("askBtn");
-
-            askBtn.addEventListener("click", function () {
-                var question = document.getElementById("inputField").innerText;
-                fetch("/api/generate_answer", {
-                    method: "POST",
-                    body: JSON.stringify({ question: question })
-                }).then(resp => resp.json()).then(
-                    data => document.getElementById("answers").innerHTML += '<p>' + data["answer"] + '</p>'
-                );
-            });
-        </script>
-    </body>
-</html>''')
+if __name__=="__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
