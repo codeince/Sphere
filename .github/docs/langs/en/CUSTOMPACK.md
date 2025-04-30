@@ -8,8 +8,8 @@ After creating of resource-pack you need to change value of variable in the **sr
 
 Your resource-pack must include this files:
 
-1. Language("/langs/language.json"): main Sphere actions writes right here
-2. Answer("/langs/answer_files/answers_language.json"): Sphere's dictionary for Sphere's reactions writes right here
+1. Language(`/langs/language.json`): main Sphere actions writes right here
+2. Answer(`/langs/answer_files/answers_language.json`): Sphere's dictionary for Sphere's reactions writes right here
 
 # Language File
 
